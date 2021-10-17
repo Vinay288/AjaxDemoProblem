@@ -35,7 +35,17 @@ function makeAJAXCall(methodType, url, callback, async = true, data = null) {
 }
 
 const getURL = "http://127.0.0.1:3000/employees/"
+
 function getUserDetails(data) {
     console.log("get user data : " + data)
 }
 makeAJAXCall("GET", getURL, getUserDetails, true);
+
+const deleteURL="http://127.0.0.1:3000/employees/4";
+
+function userDeleted(data)
+{
+    console.log("User deleted: "+data)
+}
+makeAJAXCall("DELETE",deleteURL,userDeleted,true);
+
