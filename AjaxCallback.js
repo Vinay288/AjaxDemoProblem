@@ -39,7 +39,6 @@ const getURL = "http://127.0.0.1:3000/employees/"
 function getUserDetails(data) {
     console.log("get user data : " + data)
 }
-makeAJAXCall("GET", getURL, getUserDetails, true);
 
 const deleteURL="http://127.0.0.1:3000/employees/4";
 
@@ -47,5 +46,15 @@ function userDeleted(data)
 {
     console.log("User deleted: "+data)
 }
-makeAJAXCall("DELETE",deleteURL,userDeleted,true);
+makeAJAXCall("DELETE",deleteURL,userDeleted,false);
+makeAJAXCall("GET", getURL, getUserDetails, false);
 
+
+const postURL="http://127.0.0.1:3000/employees";
+const emplData={"name":"Harry","salary":"50000"}
+function userAdded(data)
+{
+    console.log("User deleted: "+data)
+}
+makeAJAXCall("POST",postURL,userAdded,false,emplData);
+makeAJAXCall("GET", getURL, getUserDetails, false);
